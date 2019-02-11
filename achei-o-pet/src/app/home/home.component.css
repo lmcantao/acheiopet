@@ -1,0 +1,31 @@
+.image {
+ 
+    height: 420px;
+    width: auto;
+    padding: 10px;
+    display: block;
+    margin: 0 auto;
+    background:url('img/cat.png') no-repeat center center;
+   
+
+}
+
+.image_2 {
+ 
+    height: 420px;
+    width: auto;
+    padding: 10px;
+    display: block;
+    margin: 0 auto;
+    background:url('img/dog.png') no-repeat center center;
+
+
+}
+
+.fonte{
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    text-align: center;
+    font-size: 60px;
+}
+
