@@ -1,6 +1,7 @@
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { UsuarioAddComponent } from './usuario/usuario-add/usuario-add.component
 import { UsuarioEditComponent } from './usuario/usuario-edit/usuario-edit.component';
 import { EventoEditComponent } from './eventos/evento-edit/evento-edit.component';
 import { UsuarioDetalheComponent } from './usuario/usuario-detalhe/usuario-detalhe.component';
+import { LoginApiService } from './serves/login-api.service';
 
 
 @NgModule({
@@ -40,7 +42,8 @@ import { UsuarioDetalheComponent } from './usuario/usuario-detalhe/usuario-detal
   imports: [
     BrowserModule,
     AppRoutingModule, 
-    FormsModule
+    FormsModule,
+    HttpClientModule
    
   ],
   providers: [],

@@ -5,7 +5,7 @@
     padding: 10px;
     display: block;
     margin: 0 auto;
-    background:url('img/cat.png') no-repeat center center;
+    background:url('../../assets/images/cat.png') no-repeat center center;
    
 
 }
@@ -17,7 +17,7 @@
     padding: 10px;
     display: block;
     margin: 0 auto;
-    background:url('img/dog.png') no-repeat center center;
+    background:url('../../assets/images/dog.png') no-repeat center center;
 
 
 }
@@ -29,3 +29,6 @@
     font-size: 60px;
 }
 
+.card {
+    background-color: rgb(240, 238, 235);
+}

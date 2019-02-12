@@ -1,3 +1,5 @@
+import { Encontrado } from './../busca-encontrados/encontrado/encontrado';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -26,5 +28,17 @@ export class EventosApiService {
     }
     return null;
  }
-  constructor() { }
+
+ private readonly apiEncontrado = 'http://192.168.51.27:8089/pet/evento/encontrado';
+ private readonly apiPerdido = 'http://192.168.51.27:8089/pet/evento/perdido';
+  
+  constructor(private http: HttpClient) { }
+
+  urlEncontrado() {
+    return this.http.get<Encontrado[]>(this.apiEncontrado);
+  }
+
+  urlPerdido() {
+    return this.http.get<Encontrado[]>(this.apiPerdido);
+  }
 }

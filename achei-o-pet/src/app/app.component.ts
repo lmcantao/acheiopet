@@ -34,6 +34,5 @@ export class AppComponent {
   logout(){
     localStorage.setItem("usuarioLogado", "");
     this.router.navigate(['']);
-
   }
 }
