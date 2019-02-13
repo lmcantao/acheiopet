@@ -1,43 +1,24 @@
-<!--p>
-  Lista de Usuarios
-</p>
-<p>Pagina: {{ pagina }}</p>
-<div class="collection">
-  <a href="#!" class="collection-item" 
-  *ngFor="let usuarios of usuarios" 
-  [routerLink]="['/usuario',usuarios.id]">{{ usuarios.nome }}</a>
-</div>
-<button (click)="proximaPagina()">Proxima Pagina</button-->
-
-<div class="container">
-
-<h5 class="fonte">
-  <b>Cadrasto de Usuário</b>
-</h5>
-
-<div class="row">
-  <div class="input-field col s6">
-    <input id="nome" type="text" class="validate">
-    <label class="active" for="nome">Nome</label>
-  </div>
-</div>
-
-<div class="row">
-    <div class="input-field col s6">
-      <input id="email" type="text" class="validate">
-      <label class="active" for="email">E-mail</label>
+<div class="row" *ngFor="let evento of Evento">
+  <br><br>
+  <div class="col s12 m6" class="container center-align">
+    <h1 class="card-title" class="fonte">{{ evento.nome }}</h1>
+    <button>Editar</button>
+    <button (click)="deletaEvento(evento.id)">
+      Deletar
+    </button>
+    <div class="card" class="container center-align">
+      <div class="card-image">
+        <img class="image" src="{{ evento.img }}" alt="">
+        <a class="fixed-action btn-floating blue pulse">
+          <i class="material-icons">favorite</i>
+        </a>
+      </div>
+      <div class="card-content">
+        <p>{{ evento.descricao }} </p>
+      </div>
+      <div class="card-content" *ngFor="let telefone of evento.telefone">
+        <p>({{ telefone.ddd }}) {{ telefone.numero }} </p>
+      </div>
     </div>
   </div>
-
-<div class="row">
-  <div class="input-field col s6">
-    <input id="senha" type="password" class="validate">
-    <label class="active" for="senha">Senha</label>
-  </div>
-</div>
-
-<button class="btn waves-effect waves-light" type="submit" 
-name="action" (click)="fazerLogin()"> Salvar
-    <i class="material-icons right">save</i>
-  </button>
 </div>

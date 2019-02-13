@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioApiService } from '../serves/usuario-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { from } from 'rxjs';
+import { UsuarioAuth } from '../shared/UsuarioAuth';
+import { Evento } from '../shared/Evento';
+import { UsuarioService } from '../services/usuario.service';
 
 @Component({
   selector: 'app-usuario',
@@ -10,29 +12,40 @@ import { Subscription } from 'rxjs';
 })
 export class UsuarioComponent implements OnInit {
 
-  usuarios: any[];
-  pagina: number;
-  inscricao: Subscription;
+  auth = new UsuarioAuth();
+  Evento: Evento[] = [];
+  isLoadingResults = true;
 
-  constructor(private usuarioServe: UsuarioApiService, 
-    private route: ActivatedRoute, private router: Router) { }
+  constructor(private api: UsuarioService, private route: ActivatedRoute) { }
+
+  getUsuarioEvento() {
+    this.api.usuarioEvento(this.auth).subscribe((dados: Evento[]) => {
+      this.Evento = dados;
+      console.log(this.Evento);
+      function sayHi() {
+        alert('Hello');
+      }
+      this.isLoadingResults = false;
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  deletaEvento(id: number) {
+    this.api.deleteEvento(id)
+      .subscribe(() => {
+        this.getUsuarioEvento();
+      }, (err) => {
+        console.log(err);
+      }
+      );
+  }
+
+
 
   ngOnInit() {
-    this.usuarios = this.usuarioServe.getUsuarios();
-
-    this.inscricao = this.route.queryParams.subscribe(
-      (queryParams: any) => {
-        this.pagina = queryParams['pagina'];
-      }
-    );
-  }
-
-  ngOnDestroy(){
-    this.inscricao.unsubscribe();
-  }
-
-  proximaPagina(){
-    //this.pagina++;
-    this.router.navigate(['/usuarios'], {queryParams:{'pagina': ++this.pagina}});
+    this.auth.id = Number(localStorage.getItem("idUsuarioPet"));
+    this.auth.token = localStorage.getItem("tokenUsuarioPet");
+    this.getUsuarioEvento();
   }
 }

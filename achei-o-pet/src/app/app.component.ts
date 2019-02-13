@@ -7,32 +7,44 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'pets';
+  title = 'Pet';
 
 
-  constructor(private router: Router){}
 
-  navigate(home: string){
-    if (home === '') {
-      this.router.navigate(['']);
-    } else if(home === 'perdidos'){
-      this.router.navigate(['/perdidos']);
-    }else if(home === 'encontrados'){
-      this.router.navigate(['/encontrados']);
-    }else if(home === 'login'){
+  constructor(private router: Router) { }
+
+  navigate(menu: string) {
+    if (menu === 'home') {
+      this.router.navigate(['/home']);
+    } else if (menu === 'evento') {
+      this.router.navigate(['/evento']);
+    } else if (menu === 'usuario') {
+      this.router.navigate(['/usuario']);
+    } else if (menu === 'perfil') {
+      this.router.navigate(['/usuario/perfil']);
+    } else if (menu === 'login') {
       this.router.navigate(['/login']);
-    }else if(home === 'usuarios'){
-      this.router.navigate(['/usuarios']);
-    }else if(home === 'eventos'){
-      this.router.navigate(['/eventos']);
-    }else if(home === 'logout'){
+    } else if (menu === 'logout') {
       this.logout();
     }
   }
 
+  logado(): boolean {
+    const token = localStorage.getItem('tokenUsuarioPet');
+    const id = localStorage.getItem('idUsuarioPet');
+    if (token == null || id == null || token == "" || id == "") {
+      return false;
+    }
+    return true;
+  }
 
-  logout(){
-    localStorage.setItem("usuarioLogado", "");
-    this.router.navigate(['']);
+  ngOnInit() {
+    this.router.navigate(["home"]);
+  }
+
+  logout() {
+    localStorage.setItem("tokenUsuarioPet", "");
+    localStorage.setItem("idUsuarioPet", "");
+    this.router.navigate(['/home']);
   }
 }

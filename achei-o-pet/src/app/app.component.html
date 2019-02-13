@@ -1,17 +1,19 @@
-<!--*ngIf="mostrarMenu"-->
 <nav class="color">
   <div class="nav-wrapper">
-    <a routerLink="" class="material-icons">pets</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
-      <!--li routerLinkActive="active"><a routerLink="/usuarios" [queryParams]="{pagina:1}">Cadastre-se</a></li-->
-      <!--li routerLinkActive="active"><a [routerLink]="['usuario', idUsuarios.value]">Usuario id</a></li-->
-      <li routerLinkActive="active"><a routerLink="/usuarios">Cadastre-se</a></li>
-      <!--li routerLinkActive="active"><a routerLink="/eventos">Eventos</a></li-->
-      <li routerLinkActive="active"><a routerLink="/eventos">Eventos</a></li>
-      <li><a class="waves-effect waves-light btn" (click)="logout()">Logout</a></li>
+    <a (click)="navigate('home')" class="material-icons">pets</a>
+    <ul id="nav-mobile" class="right">
+      <li *ngIf="!logado()"><a (click)="navigate('login')" class="waves-effect waves-light btn">LOGAR</a></li>
+      <li *ngIf="logado()"><a class="waves-effect waves-light btn" (click)="navigate('usuario')">Meus Eventos</a></li>
+      <li *ngIf="logado()"><a class="waves-effect waves-light btn" (click)="navigate('perfil')">Perfil</a>
+      </li>
+      <li *ngIf="logado()"><a class="waves-effect waves-light btn" (click)="logout()">Logout</a></li>
     </ul>
   </div>
 </nav>
 
-<router-outlet></router-outlet>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

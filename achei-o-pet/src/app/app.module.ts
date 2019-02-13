@@ -1,50 +1,71 @@
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UsuarioComponent } from './usuario/usuario.component';
-import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatGridListModule } from '@angular/material/grid-list';
+import {
+  MatInputModule,
+  MatPaginatorModule,
+  MatProgressSpinnerModule,
+  MatSortModule,
+  MatTableModule,
+  MatIconModule,
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatToolbarModule,
+  MatMenuModule, MatSidenavModule, MatListModule
+} from "@angular/material";
+import { LayoutModule } from '@angular/cdk/layout';
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { EventoComponent } from './evento/evento.component';
 import { HomeComponent } from './home/home.component';
-import { EventosComponent } from './eventos/eventos.component';
-import { EventoFormComponent } from './eventos/evento-form/evento-form.component';
-import { EventoDetalheComponent } from './eventos/evento-detalhe/evento-detalhe.component';
-import { EncontradoComponent } from './busca-encontrados/encontrado/encontrado.component';
-import { PerdidoComponent } from './busca-perdidos/perdido/perdido.component';
-import { EventoAddComponent } from './eventos/evento-add/evento-add.component';
-import { UsuarioAddComponent } from './usuario/usuario-add/usuario-add.component';
-import { UsuarioEditComponent } from './usuario/usuario-edit/usuario-edit.component';
-import { EventoEditComponent } from './eventos/evento-edit/evento-edit.component';
-import { UsuarioDetalheComponent } from './usuario/usuario-detalhe/usuario-detalhe.component';
-import { LoginApiService } from './serves/login-api.service';
-
+import { LoginComponent } from './login/login.component';
+import { LoginAddComponent } from './login/login-add/login-add.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { PerfilComponent } from './usuario/perfil/perfil.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsuarioComponent,
-    LoginComponent,
+    EventoComponent,
     HomeComponent,
-    EventosComponent,
-    EventoFormComponent,
-    EventoDetalheComponent,
-    EncontradoComponent,
-    PerdidoComponent,
-    EventoAddComponent,
-    UsuarioDetalheComponent,
-    UsuarioAddComponent,
-    UsuarioEditComponent,
-    EventoEditComponent
-    
+    LoginComponent,
+    LoginAddComponent,
+    UsuarioComponent,
+    PerfilComponent,
   ],
   imports: [
+    MatAutocompleteModule,
     BrowserModule,
-    AppRoutingModule, 
+    AppRoutingModule,
+    HttpClientModule,
     FormsModule,
-    HttpClientModule
-   
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatListModule,
+    LayoutModule,
+    MatGridListModule,
+    FlexLayoutModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

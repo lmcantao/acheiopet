@@ -1,34 +1,25 @@
-<h5 class="fonte">
-  <b>ACHEI O PET</b>
-</h5>
 <div class="container">
   <div class="row">
     <br><br>
     <div class="col s12 m6">
-      <div class="card-content ">
-        <p class="conteiner center-align">Lista de animais perdidos.</p>
+      <div (click)="navigate('PERDIDO')">
+        <img src="../../assets/images/cat.png" class="responsive">
       </div>
-      <a routerLink="/perdidos">
-        <div class="card">
-          <div class="card-image">
-            <img class="image">
-          </div>
-        </div>
-      </a>
     </div>
 
     <div class="col s12 m6">
-      <div class="card-content">
-        <p class="conteiner center-align">Lista de animais encontrados.</p>
+      <div (click)="navigate('ENCONTRADO')">
+        <img src="../../assets/images/dog.png" class="responsive">
       </div>
-      <a routerLink="/encontrados">
-        <div class="card">
-          <div class="card-image">
-            <img class="image_2">
-          </div>
-        </div>
-      </a>
-      <div class="card-action">
+    </div>
+
+    <div class="col s12 m12">
+      <div (click)="navigate('VENDER')">
+        <img src="https://i2.wp.com/yourfreshdish.com/wp-content/uploads/2017/11/animal-group.png?fit=550%2C220&ssl=1"
+          class="responsive">
+      </div>
+      <div class="card-content">
+        <p class="conteiner center-align">Lista de animais a venda.</p>
       </div>
     </div>
   </div>

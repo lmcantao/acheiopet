@@ -6,6 +6,10 @@
   <div class="row col-sm-6" style="max-width:350px;">
     <form name="form" #f="ngForm">
       <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" name="nome" [(ngModel)]="login.nome" required />
+      </div>
+      <div class="form-group">
         <label for="username">Email</label>
         <input type="text" class="form-control" name="email" [(ngModel)]="login.email" required />
       </div>
@@ -14,11 +18,8 @@
         <input type="password" class="form-control" name="password" [(ngModel)]="login.senha" required minlength="6" />
       </div>
       <div class="form-group">
-        <button (click)="logar()" class="btn btn-primary">LOGAR</button>
+        <button (click)="criar()" class="btn btn-primary">CRIAR</button>
       </div>
     </form>
-    <hr />
-    <p>Don't have an account?</p>
-    <a (click)="navigate('add')" class="btn btn-success">CADASTRAR</a>
   </div>
 </ng-template>

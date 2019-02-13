@@ -1,34 +1,19 @@
-.image {
- 
-    height: 420px;
-    width: auto;
-    padding: 10px;
-    display: block;
-    margin: 0 auto;
-    background:url('../../assets/images/cat.png') no-repeat center center;
-   
 
-}
-
-.image_2 {
- 
-    height: 420px;
-    width: auto;
-    padding: 10px;
-    display: block;
-    margin: 0 auto;
-    background:url('../../assets/images/dog.png') no-repeat center center;
-
-
+.responsive {
+  max-width: 100%;
+  height: auto;
+  max-height: 260px;
+  display: block;
+  margin: 0 auto;
 }
 
 .fonte{
-    font-family: 'Times New Roman', Times, serif;
-    color: black;
-    text-align: center;
-    font-size: 60px;
+  font-family: 'Times New Roman', Times, serif;
+  color: black;
+  text-align: center;
+  font-size: 60px;
 }
 
 .card {
-    background-color: rgb(240, 238, 235);
+  background-color: rgb(240, 238, 235);
 }

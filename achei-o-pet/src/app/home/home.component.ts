@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  navigate(tipo: string) {
+
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        "tipoEvento": tipo
+      }
+    };
+    this.router.navigate(["/evento"], navigationExtras);
+
+  }
 
   ngOnInit() {
   }

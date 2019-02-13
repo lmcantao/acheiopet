@@ -1,16 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { LoginService } from '../services/login.service';
-import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
-import { Usuario } from '../shared/Usuario';
-
+import { Usuario } from 'src/app/shared/Usuario';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-login-add',
+  templateUrl: './login-add.component.html',
+  styleUrls: ['./login-add.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginAddComponent implements OnInit {
 
   login = new Usuario();
   isLoadingResults = false;
@@ -19,14 +18,16 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder) { }
 
-  logar(): void {
+  criar(): void {
     this.isLoadingResults = true;
 
-    if (this.login.email != null && this.login.email != "" && this.login.senha != null && this.login.senha != "") {
+    if (this.login.email != null && this.login.email != "" &&
+      this.login.senha != null && this.login.senha != "" &&
+      this.login.nome != null && this.login.nome != "") {
 
       this.login.senha = btoa(this.login.senha);// passar para base64
       console.log(this.login);
-      this.api.authUsuario(this.login)
+      this.api.addUsuario(this.login)
         .subscribe(res => {
           console.log(res);
           const id = res.id;
@@ -39,12 +40,6 @@ export class LoginComponent implements OnInit {
           console.log(err);
           this.isLoadingResults = false;
         });
-    }
-  }
-
-  navigate(menu: string) {
-    if (menu === 'add') {
-      this.router.navigate(['/login-add']);
     }
   }
 

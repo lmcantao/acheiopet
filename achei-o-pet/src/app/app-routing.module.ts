@@ -1,85 +1,45 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { EventoComponent } from './evento/evento.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { LoginAddComponent } from './login/login-add/login-add.component';
 import { UsuarioComponent } from './usuario/usuario.component';
-import { EventosComponent } from './eventos/eventos.component';
-import { AuthGuardService } from './guards/auth-guard.service';
-import { EncontradoComponent } from './busca-encontrados/encontrado/encontrado.component';
-import { PerdidoComponent } from './busca-perdidos/perdido/perdido.component';
-import { EventoAddComponent } from './eventos/evento-add/evento-add.component';
-import { EventoEditComponent } from './eventos/evento-edit/evento-edit.component';
-import { UsuarioAddComponent } from './usuario/usuario-add/usuario-add.component';
-import { UsuarioEditComponent } from './usuario/usuario-edit/usuario-edit.component';
-import { EventoDetalheComponent } from './eventos/evento-detalhe/evento-detalhe.component';
-import { UsuarioDetalheComponent } from './usuario/usuario-detalhe/usuario-detalhe.component';
-
+import { AuthGuardService } from './shared/guards/auth-guard.service';
+import { PerfilComponent } from './usuario/perfil/perfil.component';
 
 const routes: Routes = [
-
   {
-    path: '',
+    path: 'home',
     component: HomeComponent
   },
   {
+    path: 'evento',
+    component: EventoComponent,
+    data: { title: 'Lista de Eventos' },
+  },
+  {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    data: { title: 'Lista de Eventos' },
   },
   {
-    path: 'usuarios',
+    path: 'login-add',
+    component: LoginAddComponent,
+    data: { title: 'Lista de Eventos' },
+  },
+  {
+    path: 'usuario',
     component: UsuarioComponent,
-  },
-
-  {
-    path: 'eventos',
-    component: EventosComponent,
+    data: { title: 'Lista de UsuarioEventos' },
     canActivate: [AuthGuardService],
   },
-  
   {
-    path: 'encontrados',
-    component: EncontradoComponent
-  },
-
-  {
-    path: 'perdidos',
-    component: PerdidoComponent
-  },
-
-  //EVENTOS
-
-  {
-    path: 'evento-add',
-    component: EventoAddComponent
-  },
- 
-  {
-    path: 'evento-edit',
-    component: EventoEditComponent
-  },
-
-  {
-    path: 'evento-detalhe',
-    component: EventoDetalheComponent
-  },
-
-  //USUARIOS
-  {
-    path: 'usuario-add',
-    component: UsuarioAddComponent
-  },
-
-  {
-    path: 'usuario-edit',
-    component: UsuarioEditComponent
-  },
-
-  {
-    path: 'usuario-detalhe',
-    component: UsuarioDetalheComponent
-  },
-
-
+    path: 'usuario/perfil',
+    component: PerfilComponent,
+    data: { title: 'Perfil Usuario' },
+    canActivate: [AuthGuardService],
+  }
 ];
 
 @NgModule({

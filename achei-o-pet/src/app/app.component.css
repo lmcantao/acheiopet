@@ -1,3 +1,4 @@
+
 .color{
     background-color:darkgrey;
     /*border: 2px solid darkslategray;*/
@@ -10,4 +11,9 @@
 .material-icons {
     font-size: 400%;
     color: black;
+}
+
+.responsive{
+    height: auto;
+    width: auto;
 }
