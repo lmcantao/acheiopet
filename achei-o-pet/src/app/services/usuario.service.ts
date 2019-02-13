@@ -10,10 +10,10 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
-const apiUrUsuarioEvento = "http://192.168.51.27:8089/pet/usuario/";
-const apiUrlUsuarioDeleteEvento = "http://192.168.51.27:8089/pet/usuario/evento/";
-const apiUrlUsuarioPerfil = "http://192.168.51.27:8089/pet/usuario/perfilUsuario";
-const apiUrlUsuarioPerfilUpdate = "http://192.168.51.27:8089/pet/usuario/perfil";
+const apiUrUsuarioEvento = "http://localhost:8089/pet/usuario/";
+const apiUrlUsuarioDeleteEvento = "http://localhost:8089/pet/usuario/evento/";
+const apiUrlUsuarioPerfil = "http://localhost:8089/pet/usuario/perfilUsuario";
+const apiUrlUsuarioPerfilUpdate = "http://localhost:8089/pet/usuario/perfil";
 @Injectable({
   providedIn: 'root'
 })

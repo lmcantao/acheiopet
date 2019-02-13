@@ -31,6 +31,7 @@ export class PerfilComponent implements OnInit {
   }
 
   updatePerfil() {
+    this.usuario.senha = btoa(this.usuario.senha);
     this.api.updatePerfil(this.usuario).subscribe((usuario) => {
       this.usuario = usuario;
     }, (err) => {

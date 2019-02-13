@@ -10,8 +10,8 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
-const apiUrAuth = "http://192.168.51.27:8089/pet/usuario/authentication";
-const apiUrlAddUsuario = "http://192.168.51.27:8089/pet/usuario/perfil";
+const apiUrAuth = "http://localhost:8089/pet/usuario/authentication";
+const apiUrlAddUsuario = "http://localhost:8089/pet/usuario/perfil";
 
 @Injectable({
   providedIn: 'root'

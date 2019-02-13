@@ -10,9 +10,9 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
-const apiUrlEvento = "http://192.168.51.27:8089/pet/evento";
-const apiUrlLocal = "http://192.168.51.27:8089/pet/evento/local";
-const apiUrlTipoPet = "http://192.168.51.27:8089/pet/tipopet";
+const apiUrlEvento = "http://localhost:8089/pet/evento";
+const apiUrlLocal = "http://localhost:8089/pet/evento/local";
+const apiUrlTipoPet = "http://localhost:8089/pet/tipopet";
 
 @Injectable({
   providedIn: 'root'
