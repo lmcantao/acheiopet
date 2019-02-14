@@ -1,4 +1,4 @@
-<div class="container" style="margin-top: 2px;ng">
+<div class="container" style="margin-top: 10px!important;">
   <div class="col s12">
     <div class="row">
       <div class="col s4">
@@ -16,16 +16,17 @@
       </div>
       <div class="col s3">
         <label>Tipo do Pet</label>
-        <select class="browser-default">
+        <select class="browser-default" (change)="getRacas($event.target.value)">
           <option value="" disabled selected>Escolha o tipo</option>
-          <option *ngFor="let tipoPet of tipoPet" value="{{ tipoPet.id }}">{{ tipoPet.nome }}</option>
+          <option *ngFor="let tipoPet of tipoPet" [ngValue]="tipoPet.id" value="{{ tipoPet.id }}">{{ tipoPet.nome }}
+          </option>
         </select>
       </div>
       <div class="col s3">
-        <label>Tipo do Pet</label>
-        <select class="browser-default">
-          <option value="" disabled selected>Escolha a raça</option>
-          <option *ngFor="let tipoPet of tipoPet" value="{{ tipoPet.id }}">{{ tipoPet.nome }}</option>
+        <label>Raça Pet</label>
+        <select class="browser-default" (change)="getPet($event.target.value)">
+          <option value="ENCONTRADO" disabled selected>Escolha a raça</option>
+          <option *ngFor="let tipoRacas of tipoRacas" value="{{ tipoRacas.id }}">{{ tipoRacas.nome }}</option>
         </select>
       </div>
       <div class="col s2">

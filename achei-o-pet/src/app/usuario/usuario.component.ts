@@ -16,7 +16,7 @@ export class UsuarioComponent implements OnInit {
   Evento: Evento[] = [];
   isLoadingResults = true;
 
-  constructor(private api: UsuarioService, private route: ActivatedRoute) { }
+  constructor(private api: UsuarioService, private route: ActivatedRoute, private router: Router) { }
 
   getUsuarioEvento() {
     this.api.usuarioEvento(this.auth).subscribe((dados: Evento[]) => {
@@ -41,6 +41,9 @@ export class UsuarioComponent implements OnInit {
       );
   }
 
+  navigate(menu: string) {
+    this.router.navigate(['/usuario/editar-evento/' + menu]);
+  }
 
 
   ngOnInit() {

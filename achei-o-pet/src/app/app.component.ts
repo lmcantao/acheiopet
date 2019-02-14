@@ -22,6 +22,8 @@ export class AppComponent {
       this.router.navigate(['/usuario']);
     } else if (menu === 'perfil') {
       this.router.navigate(['/usuario/perfil']);
+    } else if (menu === 'criar-evento') {
+      this.router.navigate(['/usuario/criar-evento']);
     } else if (menu === 'login') {
       this.router.navigate(['/login']);
     } else if (menu === 'logout') {

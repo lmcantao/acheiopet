@@ -8,6 +8,8 @@ import { TipoPet } from '../shared/TipoPet';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { Pet } from '../shared/Pet';
+import { TipoRaca } from '../shared/TipoRaca';
 
 @Component({
   selector: 'app-evento',
@@ -18,6 +20,8 @@ export class EventoComponent implements OnInit {
 
   filtroEvento = new FiltroEvento();
   tipoPet: TipoPet[] = [];
+  pet = new Pet();
+  tipoRacas: TipoRaca[] = [];
   local: string[] = [];
   Evento: Evento[] = [];
   myControl = new FormControl();
@@ -35,6 +39,35 @@ export class EventoComponent implements OnInit {
     this.api.getEvento(this.filtroEvento).subscribe((dados: Evento[]) => {
       this.Evento = dados;
       console.log(this.Evento);
+      function sayHi() {
+        alert('Hello');
+      }
+      this.isLoadingResults = false;
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  getRacas(int: number) {
+    this.pet.idTipo = int;
+    console.log(this.pet.idTipo);
+    this.api.getRacas(this.pet).subscribe((dados: TipoRaca[]) => {
+      this.tipoRacas = dados;
+      console.log(this.Evento);
+      function sayHi() {
+        alert('Hello');
+      }
+      this.isLoadingResults = false;
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  getPet(int: number) {
+    this.pet.idRaca = int;
+    this.api.getPet(this.pet).subscribe((pet: Pet) => {
+      this.filtroEvento.idPet = pet.id;
+      console.log(this.filtroEvento);
       function sayHi() {
         alert('Hello');
       }

@@ -30,9 +30,13 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { PerfilComponent } from './usuario/perfil/perfil.component';
+import { CriarEventoComponent } from './usuario/criar-evento/criar-evento.component';
+import { EditarEventoComponent } from './usuario/editar-evento/editar-evento.component';
 
 @NgModule({
   declarations: [
+    CriarEventoComponent,
+    EditarEventoComponent,
     AppComponent,
     EventoComponent,
     HomeComponent,

@@ -3,6 +3,8 @@
     <a (click)="navigate('home')" class="material-icons">pets</a>
     <ul id="nav-mobile" class="right">
       <li *ngIf="!logado()"><a (click)="navigate('login')" class="waves-effect waves-light btn">LOGAR</a></li>
+      <li *ngIf="logado()"><a class="waves-effect waves-light btn" (click)="navigate('criar-evento')">Criar Eventos</a>
+      </li>
       <li *ngIf="logado()"><a class="waves-effect waves-light btn" (click)="navigate('usuario')">Meus Eventos</a></li>
       <li *ngIf="logado()"><a class="waves-effect waves-light btn" (click)="navigate('perfil')">Perfil</a>
       </li>

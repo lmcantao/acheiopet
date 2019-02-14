@@ -2,7 +2,7 @@
   <br><br>
   <div class="col s12 m6" class="container center-align">
     <h1 class="card-title" class="fonte">{{ evento.nome }}</h1>
-    <button>Editar</button>
+    <button (click)="navigate(evento.id)">Editar</button>
     <button (click)="deletaEvento(evento.id)">
       Deletar
     </button>

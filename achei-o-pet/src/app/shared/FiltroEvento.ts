@@ -1,5 +1,5 @@
 export class FiltroEvento {
 	local: string;
-	idTipo: number;
+	idPet: number;
 	tipoEvento: string;
 }

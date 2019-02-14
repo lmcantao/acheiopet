@@ -1,0 +1,69 @@
+<div *ngIf="isLoggedIn; else loggedOut">
+  Logged in as {{roles}}.
+</div>
+
+<ng-template #loggedOut>
+  <div class="row col-sm-6" style="max-width:350px;">
+    <form name="form" #f="ngForm">
+      <div class="form-group">
+        <label for="username">Nome do pet</label>
+        <input type="text" class="form-control" name="nome" [(ngModel)]="evento.nome" required />
+      </div>
+      <div class="form-group">
+        <label for="username">Descriçao</label>
+        <input type="text" class="form-control" name="descricao" [(ngModel)]="evento.descricao" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Local</label>
+        <input type="text" class="form-control" name="local" [(ngModel)]="evento.local" required />
+      </div>
+
+
+      <div class="col s6">
+        <label>Tipo do Pet</label>
+        <select class="browser-default" (change)="getRacas($event.target.value)">
+          <option value="" disabled selected>Escolha o tipo</option>
+          <option *ngFor="let tipoPet of tipoPet" [ngValue]="tipoPet.id" value="{{ tipoPet.id }}">{{ tipoPet.nome }}
+          </option>
+        </select>
+      </div>
+      <div class="col s6">
+        <label>Raça Pet </label>
+        <select class="browser-default" (change)="getPet($event.target.value)">
+          <option value="ENCONTRADO" disabled selected>Escolha a raça</option>
+          <option *ngFor="let tipoRacas of tipoRacas" value="{{ tipoRacas.id }}">{{ tipoRacas.nome }}</option>
+        </select>
+      </div>
+
+      <div class="col s12">
+        <div class="row">
+          <div class="col s7">
+            <label>Tipo do Evento</label>
+            <select class="browser-default" (change)="salvarTipoEvento($event.target.value)">
+              <option value="PERDIDO"> Selecione</option>
+              <option value="PERDIDO"> Perdido</option>
+              <option value="ENCONTRADO"> Encontrado</option>
+              <option value="VENDER"> Vender</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">DDD</label>
+        <input type="text" class="form-control" name="ddd" [(ngModel)]="telefone.ddd" required />
+      </div>
+      <div class="form-group">
+        <label for="password">NUMERO</label>
+        <input type="text" class="form-control" name="numero" [(ngModel)]="telefone.numero" required />
+      </div>
+      <div class="form-group">
+        <label for="username">URL IMG</label>
+        <input type="text" class="form-control" name="img" [(ngModel)]="evento.img" required />
+      </div>
+      <div class="form-group">
+        <button (click)="addEvento()" class="btn btn-primary">CRIAR</button>
+      </div>
+    </form>
+  </div>
+</ng-template>

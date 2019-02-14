@@ -7,6 +7,7 @@ import { LoginAddComponent } from './login/login-add/login-add.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { AuthGuardService } from './shared/guards/auth-guard.service';
 import { PerfilComponent } from './usuario/perfil/perfil.component';
+import { CriarEventoComponent } from './usuario/criar-evento/criar-evento.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,18 @@ const routes: Routes = [
     path: 'usuario/perfil',
     component: PerfilComponent,
     data: { title: 'Perfil Usuario' },
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'usuario/criar-evento',
+    component: CriarEventoComponent,
+    data: { title: 'Criacao de Eventos' },
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'usuario/editar-evento/:id',
+    component: CriarEventoComponent,
+    data: { title: 'Criacao de Eventos' },
     canActivate: [AuthGuardService],
   }
 ];

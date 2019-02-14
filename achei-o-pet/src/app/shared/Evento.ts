@@ -11,5 +11,5 @@ export class Evento {
     data: string;
     status: boolean;
     img: string;
-    telefone: Telefone;
+    telefone: Telefone[];
 }
